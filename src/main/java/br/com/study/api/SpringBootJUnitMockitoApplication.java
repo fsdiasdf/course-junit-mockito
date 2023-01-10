@@ -9,8 +9,6 @@ public class SpringBootJUnitMockitoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJUnitMockitoApplication.class, args);
-
-        User user = new User(1, "Felipe", "fsdiasdf@gmail.com", "123456");
     }
 
 }
