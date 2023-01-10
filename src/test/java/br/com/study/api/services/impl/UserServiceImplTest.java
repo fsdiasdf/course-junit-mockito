@@ -111,13 +111,20 @@ class UserServiceImplTest {
             assertEquals(DataIntegratyViolationException.class, ex.getClass());
             assertEquals("O e-mail já foi cadastrado na nossa base de dados.", ex.getMessage());
         }
-
-
-
     }
 
     @Test
-    void update() {
+    void whenUpdateThenReturnSuccess() {
+        when(repository.save(any())).thenReturn(user);
+
+        User response = service.update(userDTO);
+
+        assertNotNull(response);
+        assertEquals(User.class, response.getClass());
+        assertEquals(ID, response.getId());
+        assertEquals(NAME, response.getName());
+        assertEquals(EMAIL, response.getEmail());
+        assertEquals(PASSWORD, response.getPassword());
     }
 
     @Test
